@@ -1,1 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Session | Pulse VR</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
 
+    <header>
+        <div id="accessibility-bar">
+    <button id="btn-contrast">Toggle High Contrast Mode</button>
+    <button id="btn-text-up">Text A+</button>
+    <button id="btn-text-down">Text A-</button>
+</div>
+        <div class="logo">Pulse <span>VR</span></div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="games.html">Game Library</a></li>
+                <li><a href="booking.html" class="active">Book Session</a></li>
+                <li><a href="pricing.html">Pricing & Membership</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="booking-container">
+        <section class="booking-box">
+            <h2>Reserve Your VR Pod</h2>
+            <p>Select your package, date, and time below to lock in your immersive experience.</p>
+            
+            <form id="vr-booking-form" onsubmit="handleBooking(event)">
+                <div class="form-group">
+                    <label for="full-name">Full Name</label>
+                    <input type="text" id="full-name" required placeholder="John Doe">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" required placeholder="you@example.com">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="players">Number of Players</label>
+                        <select id="players" required>
+                            <option value="1">1 Player</option>
+                            <option value="2">2 Players</option>
+                            <option value="4">4 Players</option>
+                            <option value="6">6+ Players (Party)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="experience">Select Experience</label>
+                        <select id="experience" required>
+                            <option value="standard">Standard VR Pod</option>
+                            <option value="simulator">Full-Motion Racing Sim</option>
+                            <option value="arena">Multiplayer Free-Roam Arena</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="booking-date">Date</label>
+                        <input type="date" id="booking-date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="booking-time">Preferred Time</label>
+                        <input type="time" id="booking-time" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">Confirm Reservation</button>
+            </form>
+        </section>
+    </main>
+
+    <div id="success-modal" class="modal">
+        <div class="modal-content">
+            <h3>🎉 Booking Confirmed!</h3>
+            <p>Your session at Pulse VR has been successfully reserved. Check your email for your entry ticket and safety brief instructions.</p>
+            <button onclick="closeModal()" class="close-btn">Awesome, Let's Game</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Pulse VR Gaming Centre. All rights reserved.</p>
+    </footer>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const contrastBtn = document.getElementById("btn-contrast");
+        if (contrastBtn) {
+            contrastBtn.addEventListener("click", () => {
+                if (document.body.style.backgroundColor === "black") {
+                    document.body.style.backgroundColor = "";
+                    document.body.style.color = "";
+                    document.querySelectorAll("a, .logo span").forEach(el => el.style.color = "");
+                } else {
+                    document.body.style.backgroundColor = "black";
+                    document.body.style.color = "white";
+                    document.querySelectorAll("a, .logo span").forEach(el => el.style.color = "#ffff00");
+                }
+            });
+        }
+
+        let currentScale = 100;
+        const upBtn = document.getElementById("btn-text-up");
+        const downBtn = document.getElementById("btn-text-down");
+
+        if (upBtn) {
+            upBtn.addEventListener("click", () => {
+                if (currentScale < 140) {
+                    currentScale += 10;
+                    document.body.style.fontSize = currentScale + "%";
+                }
+            });
+        }
+        if (downBtn) {
+            downBtn.addEventListener("click", () => {
+                if (currentScale > 80) {
+                    currentScale -= 10;
+                    document.body.style.fontSize = currentScale + "%";
+                }
+            });
+        }
+    });
+    </script>
+</body>
+</body>
+</html>
