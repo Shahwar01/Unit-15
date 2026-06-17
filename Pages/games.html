@@ -1,1 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Library | Pulse VR</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
 
+    <header>
+        <div id="accessibility-bar">
+    <button id="btn-contrast">Toggle High Contrast Mode</button>
+    <button id="btn-text-up">Text A+</button>
+    <button id="btn-text-down">Text A-</button>
+</div>
+        <div class="logo">Pulse <span>VR</span></div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="games.html" class="active">Game Library</a></li>
+                <li><a href="booking.html">Book Session</a></li>
+                <li><a href="pricing.html">Pricing & Membership</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="library-container">
+        <section class="library-intro">
+            <h1>Our VR Experience Library</h1>
+            <p>From heart-pounding multiplayer shooters to relaxing exploration worlds, we have something for every skill level.</p>
+        </section>
+
+        <section class="game-grid">
+            
+            <div class="game-card">
+                <div class="card-badge action">Action / Sci-Fi</div>
+                <h3>Cyber Strike: 2088</h3>
+                <p>A fast-paced multiplayer tactical shooter. Team up with friends to defend the neon city grid.</p>
+                <div class="game-meta">
+                    <span>👥 1-4 Players</span>
+                    <span>🔥 Intensity: High</span>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <div class="card-badge casual">Beginner Friendly</div>
+                <h3>Ocean Odyssey VR</h3>
+                <p>Explore deep-sea coral reefs and swim alongside life-sized blue whales. Zero stress, pure wonder.</p>
+                <div class="game-meta">
+                    <span>👥 Single Player</span>
+                    <span>🟢 Intensity: Low</span>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <div class="card-badge horror">Horror / Survival</div>
+                <h3>Outbreak: Quarantine</h3>
+                <p>Work together to solve puzzles and escape a zombie-infested research laboratory before time runs out.</p>
+                <div class="game-meta">
+                    <span>👥 2-6 Players</span>
+                    <span>🔥 Intensity: Medium</span>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Pulse VR Gaming Centre. All rights reserved.</p>
+    </footer>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const contrastBtn = document.getElementById("btn-contrast");
+        if (contrastBtn) {
+            contrastBtn.addEventListener("click", () => {
+                if (document.body.style.backgroundColor === "black") {
+                    document.body.style.backgroundColor = "";
+                    document.body.style.color = "";
+                    document.querySelectorAll("a, .logo span").forEach(el => el.style.color = "");
+                } else {
+                    document.body.style.backgroundColor = "black";
+                    document.body.style.color = "white";
+                    document.querySelectorAll("a, .logo span").forEach(el => el.style.color = "#ffff00");
+                }
+            });
+        }
+
+        let currentScale = 100;
+        const upBtn = document.getElementById("btn-text-up");
+        const downBtn = document.getElementById("btn-text-down");
+
+        if (upBtn) {
+            upBtn.addEventListener("click", () => {
+                if (currentScale < 140) {
+                    currentScale += 10;
+                    document.body.style.fontSize = currentScale + "%";
+                }
+            });
+        }
+        if (downBtn) {
+            downBtn.addEventListener("click", () => {
+                if (currentScale > 80) {
+                    currentScale -= 10;
+                    document.body.style.fontSize = currentScale + "%";
+                }
+            });
+        }
+    });
+    </script>
+</body>
+</body>
+</html>
