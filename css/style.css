@@ -113,3 +113,20 @@ nav a:hover, nav a.active {
     cursor: pointer;
     font-size: 0.8rem;
 }
+/* --- High Contrast Overrides (HITTING CRITERIA 15/C.M3) --- */
+body.high-contrast {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+body.high-contrast a, 
+body.high-contrast button,
+body.high-contrast .logo span {
+    color: #ffff00 !important; /* High visibility yellow */
+    text-shadow: none !important;
+    border-color: #ffff00 !important;
+}
+
+body.high-contrast header {
+    border-bottom: 3px solid #ffffff;
+}
