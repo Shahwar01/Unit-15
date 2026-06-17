@@ -1,13 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link href="css/style.css" rel="stylesheet">
-<script src="scripts/javascript.js"></script>
-<title>My First WebPage</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulse VR | Premium Virtual Reality Gaming Centre</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Home Page</h1>
-        <p>This is the HomePage</p>
-        <button onclick="sayHi()">Click Me</button>
+
+    <div id="accessibility-bar" aria-label="Accessibility Utilities">
+        <button onclick="toggleHighContrast()">Toggle High Contrast Mode</button>
+        <button onclick="changeFontSize('increase')">Text A+</button>
+        <button onclick="changeFontSize('decrease')">Text A-</button>
+    </div>
+
+    <header>
+        <div class="logo">Pulse <span>VR</span></div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="Pages/games.html">Game Library</a></li>
+                <li><a href="Pages/booking.html">Book Session</a></li>
+                <li><a href="Pages/pricing.html">Pricing & Membership</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Step Into The Next Dimension</h1>
+                <p>Experience high-end, immersive virtual reality gaming at Pulse VR. State-of-the-art gear, full-motion simulators, and multiplayer arenas await.</p>
+                <a href="Pages/booking.html" class="cta-btn">Book Your Session Now</a>
+            </div>
+        </section>
+
+        <section class="welcome-casual">
+            <h2>New to Virtual Reality?</h2>
+            <p>Don't sweat it! Pulse VR is perfect for beginners and casual players. Our friendly crew handles the setup, walks you through the controls, and keeps you safe while you explore incredible worlds.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Pulse VR Gaming Centre. All rights reserved.</p>
+    </footer>
+
+    <script src="script/javascript.js"></script>
 </body>
 </html>
