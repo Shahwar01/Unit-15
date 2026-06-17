@@ -1,45 +1,115 @@
+/* Core Theme Elements */
+:root {
+    --bg-color: #0b0c10;
+    --text-color: #c5c6c7;
+    --neon-cyan: #66fcf1;
+    --neon-purple: #833ab4;
+    --dark-grey: #1f2833;
+}
+
 body {
-    background-color: #334e44;
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
- 
-.preview-box {
-    background-color: #000000;
-    color: #ffffff;
-    padding: 30px 40px;
-    width: 450px;
-    border-radius: 4px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+
+/* Header & Nav */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: rgba(11, 12, 16, 0.95);
+    border-bottom: 2px solid var(--dark-grey);
 }
- 
-h1 {
+
+.logo {
     font-size: 24px;
-    margin-top: 0;
-    margin-bottom: 15px;
-}
- 
-p {
-    font-size: 16px;
-    color: #e0e0e0;
-    margin-bottom: 25px;
-}
- 
-button {
-    background-color: #ffffff;
-    color: #000000;
-    border: none;
-    padding: 10px 20px;
-    font-size: 14px;
     font-weight: bold;
-    cursor: pointer;
-    border-radius: 3px;
+    letter-spacing: 2px;
 }
- 
-button:hover {
-    background-color: #cccccc;
+
+.logo span {
+    color: var(--neon-cyan);
+    text-shadow: 0 0 10px var(--neon-cyan);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+nav a:hover, nav a.active {
+    color: var(--neon-cyan);
+}
+
+/* Hero Section Styling */
+.hero {
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(11,12,16,0.8) 0%, rgba(131,58,180,0.2) 100%);
+    padding: 0 20px;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 0 0 15px var(--neon-purple);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+}
+
+.cta-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: transparent;
+    color: var(--neon-cyan);
+    border: 2px solid var(--neon-cyan);
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    box-shadow: 0 0 10px rgba(102, 252, 241, 0.3);
+    transition: 0.4s ease;
+}
+
+.cta-btn:hover {
+    background-color: var(--neon-cyan);
+    color: var(--bg-color);
+    box-shadow: 0 0 20px var(--neon-cyan);
+}
+
+/* Accessibility Top Bar */
+#accessibility-bar {
+    background: #111;
+    padding: 5px 5%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+#accessibility-bar button {
+    background: #222;
+    color: #fff;
+    border: 1px solid #444;
+    padding: 3px 8px;
+    cursor: pointer;
+    font-size: 0.8rem;
 }
