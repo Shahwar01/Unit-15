@@ -1,19 +1,54 @@
-// Function to toggle High Contrast Mode for users with visual impairments
-function toggleHighContrast() {
-    document.body.classList.toggle('high-contrast');
-}
-
-// Function to increase or decrease text sizes dynamically
-let currentFontSize = 100; // represented as a percentage (%)
-
-function changeFontSize(action) {
-    const rootElement = document.documentElement;
+document.addEventListener("DOMContentLoaded", () => {
     
-    if (action === 'increase' && currentFontSize < 140) {
-        currentFontSize += 10;
-    } else if (action === 'decrease' && currentFontSize > 80) {
-        currentFontSize -= 10;
+    // 1. HIGH CONTRAST MODE TOGGLE
+    const contrastBtn = document.getElementById("btn-contrast");
+    
+    if (contrastBtn) {
+        contrastBtn.addEventListener("click", () => {
+            // Check if high contrast mode is already active
+            if (document.body.style.backgroundColor === "black") {
+                // TURN IT OFF: Clear inline styles to restore your original neon theme
+                document.body.style.backgroundColor = "";
+                document.body.style.color = "";
+                
+                // Reset all links and logos back to their default CSS colors
+                document.querySelectorAll("a, .logo span").forEach(el => {
+                    el.style.color = "";
+                });
+            } else {
+                // TURN IT ON: Force an absolute high-contrast black and white look
+                document.body.style.backgroundColor = "black";
+                document.body.style.color = "white";
+                
+                // Force navigation items and neon text to vibrant high-visibility yellow
+                document.querySelectorAll("a, .logo span").forEach(el => {
+                    el.style.color = "#ffff00";
+                });
+            }
+        });
     }
+
+    // 2. TEXT SCALING LOGIC (A+ / A-)
+    let currentScale = 100; // Start at baseline 100% size
     
-    rootElement.style.fontSize = currentFontSize + '%';
-}
+    const upBtn = document.getElementById("btn-text-up");
+    const downBtn = document.getElementById("btn-text-down");
+
+    if (upBtn) {
+        upBtn.addEventListener("click", () => {
+            if (currentScale < 140) { // Enforce an upper scaling ceiling
+                currentScale += 10;
+                document.body.style.fontSize = currentScale + "%";
+            }
+        });
+    }
+
+    if (downBtn) {
+        downBtn.addEventListener("click", () => {
+            if (currentScale > 80) { // Enforce a lower scaling floor
+                currentScale -= 10;
+                document.body.style.fontSize = currentScale + "%";
+            }
+        });
+    }
+});
