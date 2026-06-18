@@ -52,7 +52,7 @@ nav a:hover, nav a.active {
     color: var(--neon-cyan);
 }
 
-/* Hero Section Styling (UPDATED FOR PERFECT CENTERING) */
+/* Hero Section Styling */
 .hero {
     height: 70vh;
     display: flex;
